@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .header2{
+            background-color: aquamarine;
+        }
+        ul{
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            margin-bottom: 0 !important;
+        }
+        .li-header a{
+            text-decoration: none;
+
+        }
+        .li-menu a {
+            text-decoration: none;
+            color: black;
+        }
+        .menu{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="header1">
+        <div class="header2">
+                <ul class="ul-header">
+                    @if (Session["User"] != null)
+                    {
+                        var user = (test.Models.Nhanvien)Session["User"];
+                        <li class="li-header">
+                            <span class="navbar-text">Chào mừng @user.hotennv trở lại</span>
+                        </li>
+                        <li class="li-header">@Html.ActionLink("Logout", "Logout", "NhanViens")</li>
+                    }
+                    else
+                    {
+                        <li class="li-header">@Html.ActionLink("Login", "Login", "NhanViens")</li>
+                    }
+                </ul>
+        </div>
+        <div class="menu">
+            <ul class="ul-menu">
+                    <li class="li-menu">@Html.ActionLink("Xem danh sách", "Index", "NhanViens")</li>
+                    <li class="li-menu"> |</li>
+                    <li class="li-menu">@Html.ActionLink("Thêm dữ liệu", "Create", "NhanViens")</li>
+                    <li class="nli-menu"> |</li>
+                    @{Html.RenderAction("menu", "NhanViens");}
+            </ul>
+
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<test.Models.Phongban>
+
+@foreach (var phongban in Model)
+{
+    if (phongban != null)
+    {
+        <li>
+            @Html.ActionLink(phongban.tenphong, "DanhSachNhanVien", "Nhanviens", new { id = phongban.maphong }, null)
+        </li>
+    }
+}    

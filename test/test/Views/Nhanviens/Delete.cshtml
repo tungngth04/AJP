@@ -1,0 +1,72 @@
+﻿@model test.Models.Nhanvien
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Nhanvien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Phongban.tenphong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phongban.tenphong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hotennv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hotennv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tuoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tuoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diachi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.luongnv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.luongnv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.matkhau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.matkhau)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

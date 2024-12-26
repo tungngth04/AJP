@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p> @ViewBag.Error</p>
+    <label for="manv">Mã nhân viên</label>
+    <input type="text" name="manv" />
+    <label for="matkhau">Mật khẩu</label>
+    <input type="text" name="matkhau" />
+    <button type="submit">Đăng nhập</button>
+}    

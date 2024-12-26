@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "DanhSachNhanVien";
+}
+
+
+<div class="container">
+    <h2>Danh sach nhân viên</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tên nhân viên</th>
+                <th>Tuổi</th>
+                <th>Địa chỉ</th>
+                <th>Lương</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var nhanvien in Model)
+            {
+                <tr>
+                    <td>@nhanvien.hotennv</td>
+                    <td>@nhanvien.tuoi</td>
+                    <td>@nhanvien.diachi</td>
+                    <td>@nhanvien.luongnv</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
